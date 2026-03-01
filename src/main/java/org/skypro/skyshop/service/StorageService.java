@@ -37,7 +37,6 @@ public class StorageService {
     }
 
     private void initTestData() {
-        // ✅ Продукты (как в старом main)
         UUID id1 = UUID.randomUUID();
         products.put(id1, new SimpleProduct(id1, "milk", 80));
 
@@ -50,11 +49,14 @@ public class StorageService {
         UUID id4 = UUID.randomUUID();
         products.put(id4, new FixPriceProduct(id4, "sugar"));
 
-        // ✅ Статьи
+
         UUID id5 = UUID.randomUUID();
         articles.put(id5, new Article(id5, "Как готовить омлет", "Рецепт с яйцами и молоком..."));
 
         UUID id6 = UUID.randomUUID();
         articles.put(id6, new Article(id6, "Выпечка cookies", "Классический рецепт печенья..."));
+    }
+    public Optional<Product> getProductById(UUID id) {
+        return Optional.ofNullable(products.get(id));
     }
 }
